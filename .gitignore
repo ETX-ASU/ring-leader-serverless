@@ -1,7 +1,7 @@
 # package directories
 node_modules
 jspm_packages
-
+bin
 # Serverless directories
 .serverless
 
@@ -13,3 +13,15 @@ jspm_packages
 
 #local environmnet
 .env.local.json
+
+.env
+.env.*
+
+# See https://help.github.com/ignore-files/ for more about ignoring files.
+
+
+# testing
+/coverage
+
+.idea
+.serverless

@@ -1,39 +1,38 @@
 {
-  "name": "ring-leader-serverless",
-  "version": "1.0.0",
-  "description": "Serverless webpack example using Typescript",
-  "main": "handler.js",
+  "name": "ringleader-serverless",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon ./bin/www",
+    "build:local": "node ./build.js",
+    "build:dev": "node ./build.js dev",
+    "build:prod": "node ./build.js prod",
+    "deploy:dev": "sls deploy --stage dev --region us-west-2",
+    "deploy:prod": "sls deploy --stage prod --region us-west-2",
+    "remove:dev": "sls remove --stage dev --region us-west-2",
+    "remove:prod": "sls remove --stage prod --region us-west-2"
   },
   "dependencies": {
-    "@types/express": "^4.17.8",
-    "aws-lambda": "^1.0.6",
+    "@asu-etx/rl-server-lib": "^0.6.19",
+    "@asu-etx/rl-shared": "^0.6.11",
+    "aws-serverless-express": "^3.3.8",
+    "dotenv-expand": "^5.1.0",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
     "global-request-logger": "^0.1.1",
     "got": "^11.8.0",
-    "jsonwebtoken": "^8.5.1",
-    "parse-link": "^1.0.3",
-    "serverless-http": "^2.6.0",
-    "source-map-support": "^0.5.10",
+    "js-yaml": "^3.14.0",
+    "lodash.isplainobject": "^4.0.6",
+    "node-fetch": "^1.7.3",
+    "oauth": "^0.9.15",
+    "serve-favicon": "~2.4.5",
     "sqlite3": "^5.0.0",
-    "typeorm": "^0.2.28",
+    "typeorm": "^0.2.29",
     "winston": "^3.3.3"
   },
   "devDependencies": {
-    "@types/aws-lambda": "^8.10.17",
-    "@types/node": "^10.12.18",
-    "@types/serverless": "^1.72.5",
-    "fork-ts-checker-webpack-plugin": "^3.0.1",
-    "serverless-offline": "^6.8.0",
-    "serverless-webpack": "^5.2.0",
-    "ts-loader": "^5.3.3",
-    "ts-node": "^8.10.2",
-    "typescript": "^3.2.4",
-    "webpack": "^4.29.0",
-    "webpack-node-externals": "^1.7.2"
-  },
-  "author": "The serverless webpack authors (https://github.com/elastic-coders/serverless-webpack)",
-  "license": "MIT"
+    "chai": "^4.1.2",
+    "mocha": "^4.1.0",
+    "serverless": "^2.10.0"
+  }
 }

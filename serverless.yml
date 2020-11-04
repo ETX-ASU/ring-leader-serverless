@@ -1,0 +1,26 @@
+service:
+  name: 'ring-leader-serverless'
+  
+frameworkVersion: '2'
+custom:
+  webpack:
+    webpackConfig: './webpack.config.js'
+    includeModules: true
+provider:
+  name: aws
+  runtime: nodejs12.x
+  apiGateway:
+    minimumCompressionSize: 1024
+  environment:
+    AWS_NODEJS_CONNECTION_REUSE_ENABLED: '1'
+
+functions:
+  ringleader:
+    handler: handler.handler
+    events:
+      - http: ANY /
+
+  proxy:
+    handler: handler.handler
+    events:
+      - http: ANY /{proxy+}
